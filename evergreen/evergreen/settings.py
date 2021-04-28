@@ -96,10 +96,12 @@ WSGI_APPLICATION = 'evergreen.wsgi.application'
 
 DATABASES = {
     'default': {
-        'NAME': 'arch',
-        'ENGINE': 'mysql.connector.django',
-        'USER': 'root',
-        'PASSWORD': 'ynwPTH51',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': '3306',
+        'OPTIONS': {'ssl': True},
     }
 }
 
