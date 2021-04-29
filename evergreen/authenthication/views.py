@@ -24,7 +24,6 @@ class LoginViewSet(viewsets.ViewSet):
     serializer_class = AuthTokenSerializer
     
     def create(self, request):
-        print(request.data)
         serializer = AuthTokenSerializer(data=request.data)
         if serializer.is_valid():
             return ObtainAuthToken().as_view()(request=request._request)
