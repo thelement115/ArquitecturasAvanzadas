@@ -5,6 +5,7 @@ from rest_framework.authentication import TokenAuthentication
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.response import Response
+from rest_framework.authtoken.models import Token
 
 from django.contrib.auth.models import User
 from . import serializers
@@ -26,6 +27,6 @@ class LoginViewSet(viewsets.ViewSet):
     def create(self, request):
         serializer = AuthTokenSerializer(data=request.data)
         if serializer.is_valid():
-            return ObtainAuthToken().as_view()(request=request._request)
+            return ObtainAuthToken().post(request)
         else:
             return Response(serializer.errors, status=status.HTTP_401_UNAUTHORIZED)
