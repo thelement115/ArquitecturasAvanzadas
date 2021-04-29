@@ -89,19 +89,24 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'evergreen.wsgi.application'
-
+""" 
+        'NAME': 'basededatosproyecto',
+        'ENGINE': 'mysql.connector.django',
+        'USER': 'admin',
+        'PASSWORD': 'Srl29041995_',
+        'PORT': '3306',
+        'OPTIONS': {'ssl': True}, """
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': '3306',
-        'OPTIONS': {'ssl': True},
+        'NAME': 'basededatosproyecto',
+        'ENGINE': 'mysql.connector.django',
+        'USER': 'admin',
+        'PASSWORD': 'Srl29041995_',
+        'HOST': 'database-1.cjbfmpgcmd7o.us-east-1.rds.amazonaws.com',
     }
 }
 
